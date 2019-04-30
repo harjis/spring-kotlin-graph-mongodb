@@ -15,7 +15,6 @@ class GraphController(val graphRepository: GraphRepository) {
 
     @GetMapping("/{id}")
     fun show(@PathVariable id: String): Graph {
-        println(graphRepository.findById(id))
-        return graphRepository.findById(id).orElseThrow { throw EntityNotFoundException("Entity not found with id: " + id.toString()) }
+        return graphRepository.findById(id).orElseThrow { throw EntityNotFoundException("Entity not found with id: " + id) }
     }
 }
